@@ -90,25 +90,25 @@
 
         }
 
-        // function test_delete()
-        // {
-        //     $name = "Claire";
-        //     $id = null;
-        //     $name2 = "Johnny";
-        //     $id2 = null;
-        //
-        //     $client = new Client ($name, $id);
-        //     $client->save();
-        //     $client2 = new Client($name2, $id2);
-        //     $client2->save();
-        //     //Act
-        //     $client->delete();
-        //
-        //     //Assert
-        //     $result = Client::getAll();
-        //     $this->assertEquals([$client2], $result);
-        //
-        // }
+        function test_delete()
+        {
+            $name = "Claire";
+            $id = null;
+            $name2 = "Johnny";
+            $id2 = null;
+
+            $client = new Client ($name, $id);
+            $client->save();
+            $client2 = new Client($name2, $id2);
+            $client2->save();
+            //Act
+            $client->delete();
+
+            //Assert
+            $result = Client::getAll();
+            $this->assertEquals([$client2], $result);
+
+        }
 
     }
 

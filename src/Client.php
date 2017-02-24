@@ -42,10 +42,10 @@
             $this->name = $new_name;
         }
 
-        // function delete()
-        // {
-        //     $GLOBALS['DB']->exec("DELETE FROM client WHERE id={$this->getId()};");
-        // }
+        function delete()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM client WHERE id={$this->getId()};");
+        }
 
         static function find($id)
         {
