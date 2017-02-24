@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h1>Generic<span class="tm">tm</span> Hair Salon</h1>
+
+        {% if stylists is not empty %}
+        <ul>
+            {% for stylist in stylists %}
+                <li> <a href="/stylist/{{stylist.getName}}" class="btn btn-success">{{stylist.getName}}</a>
+                    <form action="/stylist/{{stylist.getName}}/edit">
+                        <button type="submit" value="{{stylist.getId}}" class="btn btn-warning">Edit</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        <form action="/" method="post">
+            <h4>Add a new stylist</h4>
+            <label for="stylist-name">Name:</label>
+            <input class="form-control" type="text" name="stylist-name" placeholder="Enter the new stylist name">
+
+            <button type="submit">Add</button>
+        </form>
+    </body>
+</html>
