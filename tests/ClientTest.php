@@ -72,24 +72,24 @@
 
         }
 
-        // function test_edit()
-        // {
-        //     $name = "Claire";
-        //     $id = null;
-        //     $new_name= "Johnny";
-        //
-        //     $client = new Client ($name, $id);
-        //     $client->save();
-        //
-        //     //Act
-        //     $client->update($new_name);
-        //
-        //     //Assert
-        //     $result = Client::findByname($new_name);
-        //     $this->assertEquals($client, $result);
-        //
-        // }
-        //
+        function test_edit()
+        {
+            $name = "Claire";
+            $id = null;
+            $new_name= "Johnny";
+
+            $client = new Client ($name, $id);
+            $client->save();
+
+            //Act
+            $client->update($new_name);
+
+            //Assert
+            $result = Client::findByname($new_name);
+            $this->assertEquals($client, $result);
+
+        }
+
         // function test_delete()
         // {
         //     $name = "Claire";

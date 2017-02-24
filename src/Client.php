@@ -36,11 +36,11 @@
             $this->setId($GLOBALS['DB']->lastInsertId());
         }
 
-        // function update($new_name)
-        // {
-        //     $GLOBALS['DB']->exec("UPDATE client SET name = '{$new_name}' WHERE id={$this->getId()};");
-        //     $this->name = $new_name;
-        // }
+        function update($new_name)
+        {
+            $GLOBALS['DB']->exec("UPDATE client SET name = '{$new_name}' WHERE id={$this->getId()};");
+            $this->name = $new_name;
+        }
 
         // function delete()
         // {
