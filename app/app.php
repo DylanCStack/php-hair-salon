@@ -31,6 +31,13 @@
         return $app['twig']->render("index.html.twig", array("stylists" => Stylist::getAll()));
     });
 
+    $app->delete('/', function() use ($app) {
+        Stylist::deleteAll();
+        Client::deleteAll();
+
+        return $app['twig']->render("index.html.twig", array("stylists" => Stylist::getAll()));
+    });
+
     $app->get('/stylist/{name}/edit', function($name) use ($app) {
         $stylist = Stylist::findByName($name);
 
