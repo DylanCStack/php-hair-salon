@@ -56,14 +56,14 @@
             }
         }
 
-        // static function findByName($name)
-        // {
-        //     $clients = $GLOBALS['DB']->query("SELECT * FROM client WHERE name = '{$name}'");
-        //     foreach ($clients as $client) {
-        //         $new_client = new Client($client['name'], $client['id']);
-        //         return $new_client;
-        //     }
-        // }
+        static function findByName($name)
+        {
+            $clients = $GLOBALS['DB']->query("SELECT * FROM client WHERE name = '{$name}'");
+            foreach ($clients as $client) {
+                $new_client = new Client($client['name'], $client['id']);
+                return $new_client;
+            }
+        }
 
         static function getAll()
         {
