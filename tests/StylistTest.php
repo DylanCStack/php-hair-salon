@@ -72,6 +72,24 @@
 
         }
 
+        function test_edit()
+        {
+            $name = "Claire";
+            $id = null;
+            $new_name= "Johnny";
+
+            $stylist = new Stylist ($name, $id);
+            $stylist->save();
+
+            //Act
+            $stylist->update($new_name);
+
+            //Assert
+            $result = Stylist::findByname($new_name);
+            $this->assertEquals($stylist, $result);
+
+        }
+
     }
 
 

@@ -38,18 +38,24 @@ Download or clone the repository from [here](https://github.com/DylanCStack/php-
     * Output:
         * "Johnny", id:1
 
-1. The program will be able to save a new Client into the hair_salon database.
+5. The program will be able to delete  an existing stylist.
+    * Input:
+        * {"Claire", id:1}->delete();
+    * Output:
+        * null;
+
+6. The program will be able to save a new Client into the hair_salon database.
     * Input:
         * "Franklin"
     * Output:
         *   hair_salon.client[0] 1, "Franklin"
 
-2. The program will be able to retrieve a specific Client by their id.
+7. The program will be able to retrieve a specific Client by their id.
     * Input:
         * 1
     * Output:
         * "Franklin", id: 1
-3. The program will be able to retrieve a specific Client by their name.
+8. The program will be able to retrieve a specific Client by their name.
     * Input:
         * "Franklin"
     * Output:
@@ -60,6 +66,12 @@ Download or clone the repository from [here](https://github.com/DylanCStack/php-
         * "Franklin", id:1 : "Jessica"
     * Output:
         * "Jessica", id:1
+
+5. The program will be able to delete  an existing client.
+    * Input:
+        * {"Franklin", id:1}->delete();
+    * Output:
+        * null;
 
 
 ##Copyright (c) 2017 Dylan Stackhouse, licensed under the MIT license.
