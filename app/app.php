@@ -28,7 +28,8 @@
         $stylist->save();
 
         return $app['twig']->render("index.html.twig", array("stylists" => Stylist::getAll()));
-    })
+    });
+
     $app->get('/stylist/{name}/edit', function($name) use ($app) {
         $stylist = Stylist::findByName($name);
 
@@ -37,15 +38,16 @@
 
     $app->patch('/edit-stylist/{id}', function($id) use ($app) {
         $stylist = Stylist::find($id);
-        $stylist->update($_POST['new-stylist-name'])
+        $stylist->update($_POST['new-stylist-name']);
 
+        return $app['twig']->render("index.html.twig", array("stylists" => Stylist::getAll()));
     });
 
     $app->delete('/delete-stylist/{id}', function($id) use ($app) {
         $stylist = Stylist::find($id);
         $stylist->delete();
 
-        return $app->redirect("/");
+        return $app['twig']->render("index.html.twig", array("stylists" => Stylist::getAll()));
     });
 
     return $app;

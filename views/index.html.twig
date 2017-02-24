@@ -14,6 +14,10 @@
                     <form action="/stylist/{{stylist.getName}}/edit">
                         <button type="submit" value="{{stylist.getId}}" class="btn btn-warning">Edit</button>
                     </form>
+                    <form action="/delete-stylist/{{stylist.getId}}" method="post">
+                        <input name="_method" type="hidden" value="delete">
+                        <button type="submit" value="{{stylist.getId}}" class="btn btn-warning">Delete</button>
+                    </form>
                 </li>
             {% endfor %}
         </ul>
