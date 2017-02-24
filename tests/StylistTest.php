@@ -90,6 +90,26 @@
 
         }
 
+        function test_delete()
+        {
+            $name = "Claire";
+            $id = null;
+            $name2 = "Johnny";
+            $id2 = null;
+
+            $stylist = new Stylist ($name, $id);
+            $stylist->save();
+            $stylist2 = new Stylist($name2, $id2);
+            $stylist2->save();
+            //Act
+            $stylist->delete();
+
+            //Assert
+            $result = Stylist::getAll();
+            $this->assertEquals([$stylist2], $result);
+
+        }
+
     }
 
 
