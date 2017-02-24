@@ -72,6 +72,21 @@ Download or clone the repository from [here](https://github.com/DylanCStack/php-
         * {"Franklin", id:1}->delete();
     * Output:
         * null;
+5. The program will be find all clients of a specific stylist.
+    * Input:
+        * {"Franklin",stylist_id:1 id:1}->delete();
+        * {"Johnny",stylist_id:2 id:1}->delete();
+        * {"Jessica",stylist_id:2 id:1}->delete();
+        * {"Stacey",stylist_id:1 id:1}->delete();
+    * Output:
+        * {"Johnny",stylist_id:2 id:1}->delete();
+        * {"Jessica",stylist_id:2 id:1}->delete();
 
 
 ##Copyright (c) 2017 Dylan Stackhouse, licensed under the MIT license.
+
+####mySQL commands
+* CREATE DATABASE hair_salon;
+* USE hair_salon:
+* CREATE TABLE stylist (id serial PRIMARY KEY, name VARCHAR (255));
+* CREATE TABLE client (id SERIAL PRIMARY KEY, name VARCHAR (255), stylist_id INT);
