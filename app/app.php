@@ -80,5 +80,13 @@
         return $app['twig']->render("clients.html.twig", array("clients" => Client::getAllByStylist($stylist->getId()), "stylist" => $stylist));
     });
 
+    $app ->delete('/{name}/delete-client/{id}', function($name, $id) use ($app) {
+        $stylist = Stylist::findByName($name);
+        $client = Client::find($id);
+        $client->delete();
+
+        return $app['twig']->render("clients.html.twig", array("clients" => Client::getAllByStylist($stylist->getId()), "stylist" => $stylist));
+    });
+
     return $app;
 ?>

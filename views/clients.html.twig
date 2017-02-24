@@ -14,7 +14,7 @@
                     <form action = "/{{stylist.getName}}/client/{{client.getName}}/edit">
                         <button type="submit" value="{{client.getId}}" class="btn btn-warning">Edit</button>
                     </form>
-                    <form action="/delete-client/{{client.getId}}" method="post">
+                    <form action="/{{stylist.getName}}/delete-client/{{client.getId}}" method="post">
                         <input name="_method" type="hidden" value="delete">
                         <button type="submit" value="{{client.getId}}" class="btn btn-warning">Delete</button>
                     </form>
