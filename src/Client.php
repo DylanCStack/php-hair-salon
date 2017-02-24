@@ -31,7 +31,7 @@
         {
             $this->id = $new_id;
         }
-        
+
         function getStylistId()
         {
             return $this->stylist_id;
@@ -91,9 +91,18 @@
 
         }
 
-        static function getAllByStylist()
+        static function getAllByStylist($stylist_id)
         {
-            // $clients = $GLOBALS['DB']->query
+            $clients = $GLOBALS['DB']->query("SELECT * FROM client WHERE stylist_id = {$stylist_id};");
+            $output = array();
+
+            foreach ($clients as $client) {
+                $new_client = new Client($client['name'], $client['stylist_id'], $client['id']);
+                array_push($output, $new_client);
+            }
+
+            return $output;
+
         }
 
         static function deleteAll()

@@ -118,7 +118,38 @@
 
         }
 
-        //next test is get all by stylist
+        function test_find_by_stylist()
+        {
+            $name = "Claire";
+            $id = null;
+            $stylist_id = 1;
+            $name2 = "Johnny";
+            $id2 = null;
+            $stylist_id2 = 1;
+
+            $client = new Client ($name,$stylist_id, $id);
+            $client->save();
+            $client2 = new Client($name2, $stylist_id2, $id2);
+            $client2->save();
+
+            $name3 = "Franklin";
+            $id3 = null;
+            $stylist_id3 = 2;
+            $name4 = "Jessica";
+            $id4 = null;
+            $stylist_id4 = 2;
+
+            $client3 = new Client ($name3,$stylist_id3, $id3);
+            $client3->save();
+            $client4 = new Client($name4, $stylist_id4, $id4);
+            $client4->save();
+            //Act
+            $result = Client::getAllByStylist($stylist_id4);
+
+            //Assert
+            $this->assertEquals([$client3,$client4], $result);
+
+        }
 
     }
 
