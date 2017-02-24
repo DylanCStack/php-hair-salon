@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h1>Generic<span class="tm">tm</span> Hair Salon</h1>
+
+        {% if stylist is not empty %}
+        <form action="/edit-stylist/{{stylist.getId}}" method="post">
+            <h4>Editing {{stylist.getName}}</h4>
+            <input type="hidden" name="_method" value="patch">
+            <label for="new-stylist-name">Name:</label>
+            <input class="form-control" type="text" name="new-stylist-name" value="{{stylist.getName}}">
+
+            <button type="submit">Add</button>
+        </form>
+
+        {% endif %}
+
+        <a href="/">Home</a>
+
+    </body>
+</html>
