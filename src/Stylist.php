@@ -40,6 +40,15 @@
             }
         }
 
+        static function findByName($name)
+        {
+            $stylists = $GLOBALS['DB']->query("SELECT * FROM stylist WHERE name = '{$name}'");
+            foreach ($stylists as $stylist) {
+                $new_stylist = new Stylist($stylist['name'], $stylist['id']);
+                return $new_stylist;
+            }
+        }
+
         static function getAll()
         {
             $stylists = $GLOBALS['DB']->query("SELECT * FROM stylist;");

@@ -53,6 +53,25 @@
 
         }
 
+        function test_find_by_name()
+        {
+            $name = "Claire";
+            $id = null;
+            $name2 = "Johnny";
+            $id2 = null;
+
+            $stylist = new Stylist ($name, $id);
+            $stylist->save();
+            $stylist2 = new Stylist($name2, $id2);
+            $stylist2->save();
+            //Act
+            $result = Stylist::findByName($stylist2->getName());
+
+            //Assert
+            $this->assertEquals($stylist2, $result);
+
+        }
+
     }
 
 
