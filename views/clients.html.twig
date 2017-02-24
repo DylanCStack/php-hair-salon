@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h1>Generic<span class="tm">tm</span> Hair Salon</h1>
+        <h3>Stylist: {{stylist.getName}}</h3>
+        {% if clients is not empty %}
+        <ul>
+            {% for client in clients %}
+                <li><span class="client-name">{{client.getName}}</span>
+                    <form action="/client/{{client.getName}}/edit">
+                        <button type="submit" value="{{client.getId}}" class="btn btn-warning">Edit</button>
+                    </form>
+                    <form action="/delete-client/{{client.getId}}" method="post">
+                        <input name="_method" type="hidden" value="delete">
+                        <button type="submit" value="{{client.getId}}" class="btn btn-warning">Delete</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        <form action="/" method="post">
+            <h4>Add a new client</h4>
+            <label for="client-name">Name:</label>
+            <input class="form-control" type="text" name="client-name" placeholder="Enter the new client name">
+
+            <button type="submit">Add</button>
+        </form>
+    </body>
+</html>

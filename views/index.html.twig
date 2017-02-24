@@ -10,7 +10,7 @@
         {% if stylists is not empty %}
         <ul>
             {% for stylist in stylists %}
-                <li> <a href="/stylist/{{stylist.getName}}" class="btn btn-success">{{stylist.getName}}</a>
+                <li> <a href="/{{stylist.getName}}/clients" class="btn btn-success">{{stylist.getName}}</a>
                     <form action="/stylist/{{stylist.getName}}/edit">
                         <button type="submit" value="{{stylist.getId}}" class="btn btn-warning">Edit</button>
                     </form>

@@ -2,6 +2,7 @@
     date_default_timezone_set("America/Los_Angeles");
     require_once __DIR__."/../vendor/autoload.php";
     require_once __DIR__."/../src/Stylist.php";
+    require_once __DIR__."/../src/Client.php";
 
     $server = 'mysql:host=localhost:8889;dbname=hair_salon';
     $username = 'root';
@@ -50,10 +51,18 @@
         return $app['twig']->render("index.html.twig", array("stylists" => Stylist::getAll()));
     });
 
-    $app->get('{name}/clients', function($name) use ($app) {
+    $app->get('/{name}/clients', function($name) use ($app) {
         $stylist = Stylist::findByName($name);
 
-        return"";
+        return $app['twig']->render("clients.html.twig", array("clients" => Clients::getAllByStylist($stylist->getId()), "stylist" => $stylist));
+    });
+
+    $app->post('/{name}/clients', function($name) use ($app) {
+        $stylist = Stylist::findByName($name);
+        $client = new Client($_POST['client-name'] , $stylist->getId() );
+        $client->save();
+
+        return $app['twig']->render("clients.html.twig", array("clients" => Clients::getAllByStylist($stylist->getId()), "stylist" => $stylist));
     });
 
     return $app;
