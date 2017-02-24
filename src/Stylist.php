@@ -45,6 +45,8 @@
         function delete()
         {
             $GLOBALS['DB']->exec("DELETE FROM stylist WHERE id={$this->getId()};");
+            $GLOBALS['DB']->exec("DELETE FROM client WHERE stylist_id={$this->getId()};");
+
         }
 
         static function find($id)
@@ -82,6 +84,7 @@
         static function deleteAll()
         {
             $GLOBALS['DB']->exec("DELETE FROM stylist;");
+            $GLOBALS['DB']->exec("DELETE FROM client;");
         }
     }
 ?>
