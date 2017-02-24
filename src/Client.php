@@ -47,14 +47,14 @@
         //     $GLOBALS['DB']->exec("DELETE FROM client WHERE id={$this->getId()};");
         // }
 
-        // static function find($id)
-        // {
-        //     $clients = $GLOBALS['DB']->query("SELECT * FROM client WHERE id = {$id}");
-        //     foreach ($clients as $client) {
-        //         $new_client = new Client($client['name'], $client['id']);
-        //         return $new_client;
-        //     }
-        // }
+        static function find($id)
+        {
+            $clients = $GLOBALS['DB']->query("SELECT * FROM client WHERE id = {$id}");
+            foreach ($clients as $client) {
+                $new_client = new Client($client['name'], $client['id']);
+                return $new_client;
+            }
+        }
 
         // static function findByName($name)
         // {

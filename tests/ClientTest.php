@@ -34,25 +34,25 @@
 
         }
 
-        // function test_find()
-        // {
-        //     $name = "Claire";
-        //     $id = null;
-        //     $name2 = "Johnny";
-        //     $id2 = null;
-        //
-        //     $client = new Client ($name, $id);
-        //     $client->save();
-        //     $client2 = new Client($name2, $id2);
-        //     $client2->save();
-        //     //Act
-        //     $result = Client::find($client2->getid());
-        //
-        //     //Assert
-        //     $this->assertEquals($client2, $result);
-        //
-        // }
-        //
+        function test_find()
+        {
+            $name = "Claire";
+            $id = null;
+            $name2 = "Johnny";
+            $id2 = null;
+
+            $client = new Client ($name, $id);
+            $client->save();
+            $client2 = new Client($name2, $id2);
+            $client2->save();
+            //Act
+            $result = Client::find($client2->getid());
+
+            //Assert
+            $this->assertEquals($client2, $result);
+
+        }
+
         // function test_find_by_name()
         // {
         //     $name = "Claire";
