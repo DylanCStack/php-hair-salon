@@ -11,7 +11,7 @@
         <ul>
             {% for client in clients %}
                 <li><span class="client-name">{{client.getName}}</span>
-                    <form action="/client/{{client.getName}}/edit">
+                    <form action = "/{{stylist.getName}}/client/{{client.getName}}/edit">
                         <button type="submit" value="{{client.getId}}" class="btn btn-warning">Edit</button>
                     </form>
                     <form action="/delete-client/{{client.getId}}" method="post">
@@ -23,12 +23,13 @@
         </ul>
         {% endif %}
 
-        <form action="/" method="post">
+        <form action="/{{stylist.getName}}/clients" method="post">
             <h4>Add a new client</h4>
             <label for="client-name">Name:</label>
             <input class="form-control" type="text" name="client-name" placeholder="Enter the new client name">
 
             <button type="submit">Add</button>
         </form>
+        <a href="/">Home</a>
     </body>
 </html>
