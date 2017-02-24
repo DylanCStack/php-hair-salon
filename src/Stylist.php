@@ -25,10 +25,15 @@
             return $this->id;
         }
 
+        function setId($new_id)
+        {
+            $this->id = $new_id;
+        }
+
         function save()
         {
             $GLOBALS['DB']->exec("INSERT INTO stylist (name) VALUES ('{$this->getName()}')");
-            $this->id = $GLOBALS['DB']->lastInsertId();
+            $this->setId($GLOBALS['DB']->lastInsertId());
         }
 
         function update($new_name)
