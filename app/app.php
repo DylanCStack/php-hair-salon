@@ -50,5 +50,11 @@
         return $app['twig']->render("index.html.twig", array("stylists" => Stylist::getAll()));
     });
 
+    $app->get('{name}/clients', function($name) use ($app) {
+        $stylist = Stylist::findByName($name);
+
+        return"";
+    });
+
     return $app;
 ?>

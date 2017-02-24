@@ -2,11 +2,13 @@
     class Client{
 
         private $name;
+        private $stylist_id;
         private $id;
 
-        function __construct($name, $id=null)
+        function __construct($name, $stylist_id, $id=null)
         {
             $this->name = $name;
+            $this->stylist_id = $stylist_id;
             $this->id = $id;
         }
 
@@ -29,10 +31,20 @@
         {
             $this->id = $new_id;
         }
+        
+        function getStylistId()
+        {
+            return $this->stylist_id;
+        }
+
+        function setStylistId($new_stylist_id)
+        {
+            $this->stylist_id = $new_stylist_id;
+        }
 
         function save()
         {
-            $GLOBALS['DB']->exec("INSERT INTO client (name) VALUES ('{$this->getName()}')");
+            $GLOBALS['DB']->exec("INSERT INTO client (name, stylist_id) VALUES ('{$this->getName()}', {$this->getStylistId()})");
             $this->setId($GLOBALS['DB']->lastInsertId());
         }
 
@@ -51,7 +63,7 @@
         {
             $clients = $GLOBALS['DB']->query("SELECT * FROM client WHERE id = {$id}");
             foreach ($clients as $client) {
-                $new_client = new Client($client['name'], $client['id']);
+                $new_client = new Client($client['name'], $client['stylist_id'], $client['id']);
                 return $new_client;
             }
         }
@@ -60,7 +72,7 @@
         {
             $clients = $GLOBALS['DB']->query("SELECT * FROM client WHERE name = '{$name}'");
             foreach ($clients as $client) {
-                $new_client = new Client($client['name'], $client['id']);
+                $new_client = new Client($client['name'], $client['stylist_id'], $client['id']);
                 return $new_client;
             }
         }
@@ -71,12 +83,17 @@
             $output = array();
 
             foreach ($clients as $client) {
-                $new_client = new Client($client['name'], $client['id']);
+                $new_client = new Client($client['name'], $client['stylist_id'], $client['id']);
                 array_push($output, $new_client);
             }
 
             return $output;
 
+        }
+
+        static function getAllByStylist()
+        {
+            // $clients = $GLOBALS['DB']->query
         }
 
         static function deleteAll()

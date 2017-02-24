@@ -22,8 +22,9 @@
         {
             $name = "Claire";
             $id = null;
+            $stylist_id = 1;
 
-            $client = new Client ($name, $id);
+            $client = new Client ($name,$stylist_id, $id);
 
             //Act
             $client->save();
@@ -38,12 +39,14 @@
         {
             $name = "Claire";
             $id = null;
+            $stylist_id = 1;
             $name2 = "Johnny";
             $id2 = null;
+            $stylist_id2 = 1;
 
-            $client = new Client ($name, $id);
+            $client = new Client ($name,$stylist_id, $id);
             $client->save();
-            $client2 = new Client($name2, $id2);
+            $client2 = new Client($name2, $stylist_id2, $id2);
             $client2->save();
             //Act
             $result = Client::find($client2->getid());
@@ -57,12 +60,14 @@
         {
             $name = "Claire";
             $id = null;
+            $stylist_id = 1;
             $name2 = "Johnny";
             $id2 = null;
+            $stylist_id2 = 1;
 
-            $client = new Client ($name, $id);
+            $client = new Client ($name,$stylist_id, $id);
             $client->save();
-            $client2 = new Client($name2, $id2);
+            $client2 = new Client($name2, $stylist_id2, $id2);
             $client2->save();
             //Act
             $result = Client::findByName($client2->getName());
@@ -76,9 +81,10 @@
         {
             $name = "Claire";
             $id = null;
+            $stylist_id = 1;
             $new_name= "Johnny";
 
-            $client = new Client ($name, $id);
+            $client = new Client ($name,$stylist_id, $id);
             $client->save();
 
             //Act
@@ -94,12 +100,14 @@
         {
             $name = "Claire";
             $id = null;
+            $stylist_id = 1;
             $name2 = "Johnny";
             $id2 = null;
+            $stylist_id2 = 1;
 
-            $client = new Client ($name, $id);
+            $client = new Client ($name,$stylist_id, $id);
             $client->save();
-            $client2 = new Client($name2, $id2);
+            $client2 = new Client($name2, $stylist_id2, $id2);
             $client2->save();
             //Act
             $client->delete();
@@ -109,6 +117,8 @@
             $this->assertEquals([$client2], $result);
 
         }
+
+        //next test is get all by stylist
 
     }
 
