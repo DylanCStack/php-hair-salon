@@ -25,6 +25,14 @@
         </ul>
         {% endif %}
 
+        {% if clients is not empty %}
+        <form action="/{{stylist.getName}}/clients" method="post">
+            <input name="_method" type="hidden" value="delete">
+
+            <button type="submit">Delete all of {{stylist.getName}}'s clients.</button>
+        </form>
+        {% endif %}
+
         <form action="/{{stylist.getName}}/clients" method="post">
             <h4>Add a new client</h4>
             <label for="client-name">Name:</label>

@@ -109,5 +109,10 @@
         {
             $GLOBALS['DB']->exec("DELETE FROM client;");
         }
+
+        static function deleteAllByStylist($id)
+        {
+            $GLOBALS['DB']->exec("DELETE FROM client WHERE stylist_id = {$id}");
+        }
     }
 ?>
