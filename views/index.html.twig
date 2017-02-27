@@ -3,38 +3,41 @@
     <head>
         <meta charset="utf-8">
         <title></title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link href="/css/styles.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <h1>Generic<span class="tm">tm</span> Hair Salon</h1>
+        <div class="container">
+            <h1>Generic<span class="tm">tm</span> Hair Salon</h1>
 
-        {% if stylists is not empty %}
-        <ul>
-            {% for stylist in stylists %}
-                <li> <a href="/{{stylist.getName}}/clients" class="btn btn-success">{{stylist.getName}}</a>
-                    <form action="/stylist/{{stylist.getName}}/edit">
-                        <button type="submit" value="{{stylist.getId}}" class="btn btn-warning">Edit</button>
-                    </form>
-                    <form action="/delete-stylist/{{stylist.getId}}" method="post">
-                        <input name="_method" type="hidden" value="delete">
-                        <button type="submit" value="{{stylist.getId}}" class="btn btn-warning">Delete</button>
-                    </form>
-                </li>
-            {% endfor %}
-        </ul>
-        {% endif %}
+            {% if stylists is not empty %}
+            <ul>
+                {% for stylist in stylists %}
+                    <li> <a href="/{{stylist.getName}}/clients" class="btn btn-success">{{stylist.getName}}</a>
+                        <form action="/stylist/{{stylist.getName}}/edit">
+                            <button type="submit" value="{{stylist.getId}}" class="btn btn-warning">Edit</button>
+                        </form>
+                        <form action="/delete-stylist/{{stylist.getId}}" method="post">
+                            <input name="_method" type="hidden" value="delete">
+                            <button type="submit" value="{{stylist.getId}}" class="btn btn-danger">Delete</button>
+                        </form>
+                    </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
 
-        <form action="/" method="post">
-            <h4>Add a new stylist</h4>
-            <label for="stylist-name">Name:</label>
-            <input class="form-control" type="text" name="stylist-name" placeholder="Enter the new stylist name">
+            <form action="/" method="post">
+                <h4>Add a new stylist</h4>
+                <label for="stylist-name">Name:</label>
+                <input class="form-control" type="text" name="stylist-name" placeholder="Enter the new stylist name">
 
-            <button type="submit">Add</button>
-        </form>
-        <hr>
-        <form action="/" method="post">
-            <input name="_method" type="hidden" value="delete">
-            <button type="submit" class="btn btn-danger">Delete all stylists and clients</button>
-        </form>
+                <button type="submit">Add</button>
+            </form>
+            <hr>
+            <form action="/" method="post">
+                <input name="_method" type="hidden" value="delete">
+                <button type="submit" class="btn btn-danger">Delete all stylists and clients</button>
+            </form>
+        </div>
     </body>
 </html>
