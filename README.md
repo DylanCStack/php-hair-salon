@@ -1,9 +1,9 @@
-#Hair Salon
-###Authored by Dylan Stackhouse, 2/24/17
-##Description
+# Hair Salon
+### Authored by Dylan Stackhouse, 2/24/17
+## Description
 A website for a hair salon which allows new stylists to sign up and be keep track of all their clients, which also allows the clients to keep track of the stylists.
 
-###Requirements
+### Requirements
 This site requires some programs and frameworks to be installed on your computer in order to run it.
 * PHP 5
 * Composer
@@ -11,10 +11,10 @@ This site requires some programs and frameworks to be installed on your computer
 * A terminal shell (apple computers will have this by default)
 * A web browser
 
-##Setup
+## Setup
 Download or clone the repository from [here](https://github.com/DylanCStack/php-hair-salon). Then in a terminal shell navigate into the folder and run '$composer install'. Next navigate to the web folder and run '$php -S localhost:8000'. Next launch MAMP and start a mySQL server.  Finally, navigate to localhost:8000 in your web browser of choice.
 
-##Specifications
+## Specifications
 1. The program will be able to save a new Stylist into the hair_salon database.
     * Input:
         * "Claire"
@@ -83,10 +83,13 @@ Download or clone the repository from [here](https://github.com/DylanCStack/php-
         * {"Jessica",stylist_id:2 id:1}->delete();
 
 
-##Copyright (c) 2017 Dylan Stackhouse, licensed under the MIT license.
+## Copyright (c) 2017 Dylan Stackhouse, licensed under the MIT license.
 
-####mySQL commands
+#### mySQL commands
+
+``` SQL
 * CREATE DATABASE hair_salon;
 * USE hair_salon:
 * CREATE TABLE stylist (id serial PRIMARY KEY, name VARCHAR (255));
 * CREATE TABLE client (id SERIAL PRIMARY KEY, name VARCHAR (255), stylist_id INT);
+```
